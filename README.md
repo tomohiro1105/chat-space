@@ -1,4 +1,4 @@
-# Qiita DB設計
+# chat-space DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
