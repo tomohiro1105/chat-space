@@ -1,0 +1,37 @@
+.flash-box
+  .flash-box__notice
+    グループを作成しました
+
+%nav.chat
+  = render "chat-side"
+      
+  .chat-main
+    .chat-header
+      .main-left-box
+        %h4.current-group
+          仮免チーム
+        %ul.member-list
+          Menber : 
+          %li.member-list__menber
+            カリメン
+      .main-right
+        .main-right__btn
+          Edit
+    .chat-message
+      .message
+        %p.message__user-name
+          カリメン
+        %p.message__date
+          2019/10/21(mon) 23:30:13
+      %p.message-text 
+        こんにちは
+      
+
+    .form
+      %form.new-message
+        .form__mask
+          %input.form__mask__message{placeholder: "type a message"}
+          %label.form__mask__image
+            = fa_icon 'picture-o', class: 'form__mask__image'
+            %input.hidden{type: 'file'}
+        %input.form__submit{type: 'submit', value: 'Send'}

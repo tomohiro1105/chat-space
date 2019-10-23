@@ -1,0 +1,23 @@
+.chat-side
+  .left-header
+    .header-box
+      %p.header-box__user
+        カリメン
+      %ul.header-box__menu
+        %li.header-box__menu
+          =link_to "", class: "header-box__menu" do
+            =fa_icon "edit", class: "header-box__menu"
+        %li.header-box__menu
+          =link_to "", class: "header-box__menu" do
+            =fa_icon "cog"
+
+  .groups
+    .group-name
+      %p.group__name
+        仮免チーム
+      %p.group__message
+        こんにちは
+      %p.group__name
+        本免チーム
+      %p.group__message
+        頑張りましょう！
