@@ -1,0 +1,19 @@
+// background-color
+
+$white: #ffffff;
+$side_blue_dark: #253141;
+$side_blue_light: #2f3e51;
+$light_blue: #38AEF0;
+
+// font-size
+
+$left-header: 16px;
+$side-group-name: 15px;
+$group-last-message: 11px;
+
+// @mixin
+
+@mixin message-font {
+  font-size: 16px;
+  clear: #434a54;
+}
