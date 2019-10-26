@@ -2,22 +2,21 @@
   .left-header
     .header-box
       %p.header-box__user
-        カリメン
+        = current_user.name
       %ul.header-box__menu
         %li.header-box__menu
-          =link_to "", class: "header-box__menu" do
+          =link_to new_group_path do
             =fa_icon "edit", class: "header-box__menu"
         %li.header-box__menu
-          =link_to "", class: "header-box__menu" do
-            =fa_icon "cog"
+          =link_to edit_user_path(current_user) do
+            =fa_icon "cog", class: "heder-box-menu"
 
   .groups
     .group-name
-      %p.group__name
-        仮免チーム
-      %p.group__message
-        こんにちは
-      %p.group__name
-        本免チーム
-      %p.group__message
-        頑張りましょう！
+      - current_user.groups.each do |group| 
+        = link_to group_messages_path(group) do
+          %p.group__name
+            = group.title
+          %p.group__message
+            メッセージはまだありません。
+      
