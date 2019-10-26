@@ -5,29 +5,25 @@
     .chat-header
       .main-left-box
         %h4.current-group
-          仮免チーム
+          = @group.title
         %ul.member-list
           Menber : 
           %li.member-list__menber
-            カリメン
+            - @members.each do |member|
+              = member.name
       .main-right
         .main-right__btn
           =link_to "Edit"
+    
     .chat-message
-      .message
-        %p.message__user-name
-          カリメン
-        %p.message__date
-          2019/10/21(mon) 23:30:13
-      %p.message-text 
-        こんにちは
+      = render @messages
       
 
     .form
-      %form.new-message
+      = form_for [@group, @message], html:{class: "new-message"} do |f|        
         .form__mask
-          %input.form__mask__message{placeholder: "type a message"}
-          %label.form__mask__image
+          = f.text_field :content, class: 'form__mask__message', placeholder: 'type a message'
+          = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'form__mask__image'
-            %input.hidden{type: 'file'}
-        %input.form__submit{type: 'submit', value: 'Send'}
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
