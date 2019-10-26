@@ -13,14 +13,9 @@
       .main-right
         .main-right__btn
           =link_to "Edit"
+    
     .chat-message
-      .message
-        %p.message__user-name
-          カリメン
-        %p.message__date
-          2019/10/21(mon) 23:30:13
-      %p.message-text 
-        こんにちは
+      = render @messages
       
 
     .form
@@ -31,7 +26,3 @@
             = fa_icon 'picture-o', class: 'form__mask__image'
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
-
-    
-    
-    
