@@ -5,11 +5,12 @@
     .chat-header
       .main-left-box
         %h4.current-group
-          仮免チーム
+          = @group.title
         %ul.member-list
           Menber : 
           %li.member-list__menber
-            カリメン
+            - @members.each do |member|
+              = member.name
       .main-right
         .main-right__btn
           =link_to "Edit"
