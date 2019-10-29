@@ -32,7 +32,6 @@ $(document).on('turbolinks:load',function(){
     .done(function(message){
       var post = buildMessage(message)
       $(".chat-message").append(post);
-      $("#message_content").val('');
       $("form")[0].reset();
       $(".chat-message").animate({scrollTop: $(".chat-message")[0].scrollHeight}, 'fast')
     })
