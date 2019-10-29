@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load',function(){
-// $(function(){
   function buildMessage(message){
     var html = `<div class="message">
                   <p class="message__user-name">
@@ -34,6 +33,7 @@ $(document).on('turbolinks:load',function(){
       var post = buildMessage(message)
       $(".chat-message").append(post);
       $("#message_content").val('');
+      $("form")[0].reset();
       $(".chat-message").animate({scrollTop: $(".chat-message")[0].scrollHeight}, 'fast')
     })
     
