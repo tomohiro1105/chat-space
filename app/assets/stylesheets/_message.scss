@@ -43,6 +43,7 @@
       height: calc(100% - 100px);
       padding: 20px 20px 0px;
       box-sizing: border-box;
+      overflow: scroll;
       .group{
 
         &__name{
