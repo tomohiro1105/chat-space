@@ -1,6 +1,6 @@
-$(document).on('turbolinks:load',function(){
+$(document).on("turbolinks:load",function(){
   function buildMessage(message){
-    var html = `<div class="message">
+    var html = `<div class="message" data-message_id="${message.id}">
                   <p class="message__user-name">
                     ${message.username}
                   </p>
@@ -41,5 +41,33 @@ $(document).on('turbolinks:load',function(){
     });
     return false; 
   });
+  
+  
+  var reloadMessages = function(){
+    var last_message_id = $(".message:last").data("message_id");
+    
+    $.ajax({
+      url: "api/messages",
+      type: "GET",
+      dataType: "json",
+      data: {message_id: last_message_id},
+    })
+    
+    .done(function(messages){
+      var insertHTML = '';
+      messages.forEach(function(message){
+        
+        insertHTML = buildMessage(message);
+        $(".chat-message").append(insertHTML);
+        if(last_message_id < message.id ){
+        $(".chat-message").animate({scrollTop: $(".chat-message")[0].scrollHeight}, 'fast')
+        } 
+      }) 
+    })
+    .fail(function(){
+      alert('自動更新失敗');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 });
 
